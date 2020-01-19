@@ -1,0 +1,21 @@
+{
+  "name" : "mehdi/infobot",
+  "description" : "A Powerful Info Bot Written in PHP",
+  "authors" : [{
+      "name" : "Mehdi Haghgoo",
+      "email" : "powergame_coder2@yahoo.com",
+      "homepage": "http://codezombie.ninja",
+      "role" : "Developer"
+    }
+  ],
+  "require" : {
+    "danog/madelineproto": "^5.0"
+  },
+  "minimum-stability" : "dev",
+  "autoload" : {
+    "psr-4": {
+      "InfoBot\\" : "src/"
+    }
+  }
+
+}
