@@ -25,13 +25,13 @@ class BotEventHandler extends EventHandler {
           yield $this->messages->sendMessage(['peer' => $update['message']['from_id'], 'message' => "Your id is: {$update['message']['from_id']}"  ]);
         break;
 
-        case '/chatid':
+        case '/idof':
           if(!isset($msgParts[1])) {
             yield $this->messages->sendMessage(['peer' => $update['message']['from_id'], 'parse_mode' =>  'MarkdownV2' , 'message' => "You must specify an @id or `https://t.me/link`"]);
               return;
           }
           try{
-            $details = yield $this->getPwrChat($msgParts[1]);
+            $details = yield $this->getPwrChat($msgParts[1], false);
             yield $this->messages->sendMessage(['peer' => $update['message']['from_id'], 'message' => "Type: {$details['type']}\n ID: {$details['id']}"]);
           } catch(\Exception $e) {
             yield $this->messages->sendMessage(['peer' => $update['message']['from_id'], 'message' => "Oh no! An error occurred."]);
@@ -42,6 +42,7 @@ class BotEventHandler extends EventHandler {
         case '/help':
             yield $this->messages->sendMessage(['peer' => $update['message']['from_id'], 'message' => 'Use bot commands to get id for the current user or other types of peers (channels, groups, etc.)']);
             break;
+
 
         default:
            yield $this->messages->sendMessage(['peer' => $update['message']['from_id'], 'message' => "Could not understand you. Please use one of the bot commands."]);
