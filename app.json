@@ -1,0 +1,29 @@
+{
+    "name": "Info Bot",
+    "description": "A small bot to give you ID related info",
+    "repository": "https://github.com/djnotes/infobot",
+    "keywords": ["bot", "infobot", "telegram"],
+    "website": "https://codewithmehdi.com",
+    "success_url": "https://t.me/codewithmehdi",
+    "env": {
+        "API_ID": {
+            "description": "Get this from my.telegram.org"
+        },
+        "API_HASH": {
+            "description": "Get this from my.telegram.org"
+        },
+        "BOT_TOKEN": {
+            "description": "Get this from https://t.me/botfather"
+        }    
+    },
+    "buildpacks": [
+        {"url": "heroku/php"}
+    ],
+    "formation": {
+        "bot": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+
+}

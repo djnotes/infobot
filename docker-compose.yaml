@@ -1,0 +1,12 @@
+services:
+  bot:
+    image: ghcr.io/djnotes/madelineproto-container:main
+    
+    volumes:
+      - ./bot.php:/app/bot.php
+      - ./session:/app/session
+    
+    environment:
+      - API_ID=$API_ID
+      - API_HASH=$API_HASH
+      - BOT_TOKEN=$BOT_TOKEN
