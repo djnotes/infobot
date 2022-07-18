@@ -4,12 +4,12 @@
   "authors" : [{
       "name" : "Mehdi Haghgoo",
       "email" : "powergame_coder2@yahoo.com",
-      "homepage": "http://codezombie.ninja",
+      "homepage": "http://codewithmehdi.com",
       "role" : "Developer"
     }
   ],
   "require" : {
-    "danog/madelineproto": "^5.0"
+    "danog/madelineproto": "dev-stable"
   },
   "minimum-stability" : "dev",
   "autoload" : {

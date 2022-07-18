@@ -14,7 +14,10 @@
         },
         "BOT_TOKEN": {
             "description": "Get this from https://t.me/botfather"
-        }    
+        },
+	"ADMIN": {
+		"description": "Specify the ID for the admin of the bot"
+	}
     },
     "buildpacks": [
         {"url": "heroku/php"}
