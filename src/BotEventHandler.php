@@ -9,17 +9,21 @@ use \danog\MadelineProto\EventHandler;
 
 class BotEventHandler extends EventHandler {
 
-    public static $ADMIN = getenv("ADMIN_ID") ?? null; 
+	public $admin;
+
+	public function __construct(){
+		$this->admin = getenv("ADMIN") ? getenv("ADMIN") : null;
+	}
 
     public function onStart(){
-	    if (self::$ADMIN) {
+	    if ($this->admin) {
 		    $this->messages->sendMessage(
-		    peer: self::$ADMIN,
+		    peer: $this->admin,
 		    message: "Bot started"
 		    );
 	    }
 	    else {
-		    echo "Bot started";
+		    $this->logger("Bot started");
 	    }
 		
     }
@@ -37,7 +41,10 @@ class BotEventHandler extends EventHandler {
 
       switch($msgParts[0]) {
         case '/id':
-          yield $this->messages->sendMessage(['peer' => $update['message']['from_id'], 'message' => "Your id is: {$update['message']['from_id']}"  ]);
+		yield $this->messages->sendMessage(
+			peer:$update['message']['from_id'], 
+			message: "Your id is: {$update['message']['from_id']['user_id']}"
+		);
         break;
 
         case '/idof':
